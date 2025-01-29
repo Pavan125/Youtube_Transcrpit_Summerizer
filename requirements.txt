@@ -1,5 +1,5 @@
 google-generativeai
 streamlit
 youtube-transcript-api
-googletrans
+googletrans==4.0.0-rc1
 gTTS
