@@ -26,7 +26,8 @@ def extract_transcript_details(youtube_video_url):
     except TranscriptsDisabled:
         return None
     except Exception as e:
-        raise e
+        st.error(f"Error while fetching transcript: {str(e)}")
+        return None
 
 # Generate content using generative AI model
 
