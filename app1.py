@@ -4,6 +4,7 @@ from youtube_transcript_api import YouTubeTranscriptApi, TranscriptsDisabled
 from googletrans import Translator
 import gtts
 from io import BytesIO
+
 import re
 
 
@@ -28,6 +29,7 @@ def extract_transcript_details(youtube_video_url):
         raise e
 
 # Generate content using generative AI model
+
 def generate_gemini_content(transcript_text, prompt):
     model = genai.GenerativeModel("gemini-pro")
     response = model.generate_content(prompt + transcript_text)
