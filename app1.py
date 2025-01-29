@@ -4,6 +4,7 @@ from youtube_transcript_api import YouTubeTranscriptApi, TranscriptsDisabled
 from googletrans import Translator
 import gtts
 from io import BytesIO
+import re
 
 
 # Configure the Generative AI API key
@@ -30,7 +31,11 @@ def extract_transcript_details(youtube_video_url):
 def generate_gemini_content(transcript_text, prompt):
     model = genai.GenerativeModel("gemini-pro")
     response = model.generate_content(prompt + transcript_text)
-    return response.text
+    
+    # Remove asterisks from the generated text
+    cleaned_text = re.sub(r"\*", "", response.text)
+    
+    return cleaned_text
 
 # Translate summary to target language
 def translate_summary(summary, target_language):
