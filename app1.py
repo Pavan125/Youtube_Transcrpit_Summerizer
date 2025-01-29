@@ -4,9 +4,12 @@ from youtube_transcript_api import YouTubeTranscriptApi, TranscriptsDisabled
 from googletrans import Translator
 import gtts
 from io import BytesIO
-
 import re
-
+st.set_page_config(
+    page_title="YouTube Transcript Summarizer",  # Title of the web page
+    page_icon="favicon.ico",  # Favicon file
+    layout="centered"  # You can set the layout as "wide" or "centered"
+)
 
 # Configure the Generative AI API key
 genai.configure(api_key="AIzaSyCmoyiLaXLT-dewnC3L7klTllJOyU49ImA")
