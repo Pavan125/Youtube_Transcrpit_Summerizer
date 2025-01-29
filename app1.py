@@ -35,8 +35,11 @@ def generate_gemini_content(transcript_text, prompt):
 # Translate summary to target language
 def translate_summary(summary, target_language):
     translator = Translator()
-    translated = translator.translate(summary, dest=target_language)
-    return translated.text
+    try:
+        translated = translator.translate(summary, dest=target_language)
+        return translated.text if translated and hasattr(translated, "text") else "Translation failed."
+    except Exception as e:
+        return f"Translation failed: {str(e)}"
 
 # Convert text to speech
 def text_to_speech(text, language):
